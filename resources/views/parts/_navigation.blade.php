@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-content-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/purehome_laravel">Home <span class="sr-only">(current)</span></a></li>
+        <li class="{{ Request::is('/') ? "active" : "" }}"><a href="/purehome_laravel">Home <span class="sr-only">(current)</span></a></li>
         <!-- <li><a href="#">About</a></li> -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Company <span class="caret"></span></a>
@@ -45,7 +45,7 @@
         </li>
         <li><a href="#">Careers</a></li>
         <li><a href="#">Feedback</a></li>
-        <li><a href="contact">Contact</a></li>
+        <li class="{{ Request::is('contact') ? "active" : "" }}""><a href="contact">Contact</a></li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -77,7 +77,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-offset-6 col-md-6 contact-info-bar ">
-			<p class="contact-item pull-right"><span class="fa fa-envelope" aria-hidden="true"></span>&nbsp; info@purehome-re.ae</p>
+			<p class="contact-item pull-right"><span class="fa fa-envelope" aria-hidden="true"></span>&nbsp; inquiry@purehome-re.ae</p>
 			<p class="contact-item pull-right"><span class="fa fa-phone fa-lg" aria-hidden="true"></span>&nbsp; 02 4466 775</p>
 			<p class="contact-item pull-right"><span class="fa fa-mobile fa-lg" aria-hidden="true"></span>&nbsp; 055 808 2380</p>
 		</div>

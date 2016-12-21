@@ -13,7 +13,7 @@
 			</div>
 			<div class="col-md-3">
 				<h2 class="headings-medium">Email</h2>
-				<h4><span class="fa fa-envelope fa-lg" aria-hidden="true"></span>&nbsp; &nbsp; info@purehome-re.ae</h4>
+				<h4><span class="fa fa-envelope fa-lg" aria-hidden="true"></span>&nbsp; &nbsp; inquiry@purehome-re.ae</h4>
 			</div>
 			<div class="col-md-3">
 				<h2 class="headings-medium">Address</h2>

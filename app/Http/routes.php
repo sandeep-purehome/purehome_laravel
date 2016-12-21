@@ -15,25 +15,19 @@
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-	return view('pages.home');
-});
+Route::get('/', 'PagesController@getIndex');
 
-Route::get('about', function () {
-	return view('pages.about');
-});
+Route::get('about', 'PagesController@getAbout');
 
-Route::get('contact', function () {
-	return view('pages.contact');
-});
+Route::get('contact', 'PagesController@getContact');
 
-Route::get('properties/{title?}', function ($title = null ) {
-	if ($title == null){
-		return view('hello');
-	}
-	else{
-		return $title.' Property';
-	}
-});
+// Route::get('properties/{title?}', function ($title = null ) {
+// 	if ($title == null){
+// 		return view('hello');
+// 	}
+// 	else{
+// 		return $title.' Property';
+// 	}
+// });
 
 

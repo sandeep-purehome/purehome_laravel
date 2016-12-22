@@ -9,6 +9,7 @@
 	<div class="">
 		<div class="row">
 			<div class="col-md-12 headings-main">
+				<h1>{{ $data['firstname'] }} {{ $data['lastname'] }}</h1>
 				<h1>Featured Locations</h1>
 			</div>
 			<div class="col-md-3">

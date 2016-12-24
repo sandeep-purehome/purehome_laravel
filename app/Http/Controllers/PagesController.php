@@ -26,6 +26,10 @@
 			return view('pages.services');
 		}
 
+		public function getSingleListing(){
+			return view('pages.listing-details');
+		}
+
 		
 	}
 	

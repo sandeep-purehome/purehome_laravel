@@ -21,6 +21,8 @@ Route::get('about', 'PagesController@getAbout');
 
 Route::get('contact', 'PagesController@getContact');
 
+Route::get('listing', 'PagesController@getSingleListing');
+
 // Route::get('properties/{title?}', function ($title = null ) {
 // 	if ($title == null){
 // 		return view('hello');

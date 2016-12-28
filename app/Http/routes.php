@@ -21,8 +21,11 @@ Route::get('db_test', function(){
 });
 
 Route::get('listing', function(){
-	$listing = App\Listing::find(1);
-	var_dump($listing);
+	$ref = 'PUR-R-1261';
+	$data['listing'] 	= App\Listing::find($ref);
+	$data['images'] 	= App\Listing::find($ref)->my_images;
+	$data['facilities'] = App\Listing::find($ref)->my_facilities;
+	var_dump($data);
 });
 
 Route::get('images', function(){

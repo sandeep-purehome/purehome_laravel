@@ -45,14 +45,16 @@
         </li>
         <li><a href="#">Careers</a></li>
         <li><a href="#">Feedback</a></li>
-        <li class="{{ Request::is('contact') ? "active" : "" }}""><a href="contact">Contact</a></li>
+        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="contact">Contact</a></li>
+        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="calculator"><i class="fa fa-calculator fa-lg"></i> Calculator</a></li>
       </ul>
-      <form class="navbar-form navbar-left">
+
+      {{-- <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      </form> --}}
       <!-- <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">

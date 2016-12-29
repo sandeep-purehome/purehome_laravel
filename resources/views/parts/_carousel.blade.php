@@ -23,7 +23,7 @@
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="assets/images/carousel/abu-dhabi-slide-1.jpg" alt="Apartments in Abu Dhabi">
+		      <img src="{{ URL::asset('assets/images/carousel/abu-dhabi-slide-1.jpg') }}" alt="Apartments in Abu Dhabi">
 		      <div class="carousel-caption">
 		        
 		      </div>

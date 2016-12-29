@@ -2,7 +2,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<h1 class="headings-medium">Social Media</h1>
-					<img class="center-block" src="assets/images/logo_purehome.png" alt="Pure Home Logo">
+					<img class="center-block" src="{{ URL::asset('assets/images/logo_purehome.png') }}" alt="Pure Home Logo">
 					<br>
 					<span class="fa-stack fa-2x">
 					  <i class="fa fa-square fa-stack-2x bg-facebook"></i>

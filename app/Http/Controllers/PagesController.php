@@ -1,5 +1,7 @@
-<?php 
+<?php
 	namespace App\Http\Controllers;
+
+	use App\Listing;
 
 	class PagesController extends Controller{
 
@@ -26,11 +28,27 @@
 			return view('pages.services');
 		}
 
-		public function getSingleListing(){
-			return view('pages.listing-details');
-		}
+		public function getListing($ref_no){
 
-		
+			$data['invalid'] 	=	false;
+			$data['listing'] 	= 	Listing::find($ref_no);
+
+			if(!empty($data['listing'])){
+			
+				$data['images'] 	= Listing::find($ref_no)->my_images;
+				$data['facilities'] = Listing::find($ref_no)->my_facilities;
+
+			}
+
+			else{
+
+				$data['invalid'] = true;
+
+			}
+			
+			return view('pages.listing-details')->with('data', $data);
+			
+		}
 	}
-	
+
 ?>

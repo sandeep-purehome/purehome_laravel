@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php"><img src="assets/images/logo_purehome.png" alt="Pure Home Real Estate Logo"></a>
+      <a class="navbar-brand" href="index.php"><img src="{{ URL::asset('assets/images/logo_purehome.png') }}" alt="Pure Home Real Estate Logo"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

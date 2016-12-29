@@ -6,10 +6,7 @@
 	class ListingsController extends Controller{
 
 		public function getIndex(){
-			$url 	= 	"http://xml.propspace.com/feed/xml.php?cl=1946&pid=8245&acc=8807";
-			$xml 	=	simplexml_load_file($url);
-			$listing_model  = new Listing();
-			$listing_model->syncData($xml);
+			
 			// //var_dump($xml);
 			// //print_r((string) $listings->Listing[0]->Property_Title);
 		 // 	foreach ($xml as $listing){
@@ -53,6 +50,40 @@
 		 // 		echo "<br>";
 		 // 	}
 		}
+
+		public function getListing($ref_no){
+  	 		$data['listing'] 	= Listing::find($ref_no);
+				if(!empty($data['listing'])){
+					$data['images'] 	= Listing::find($ref_no)->my_images;
+					$data['facilities'] = Listing::find($ref_no)->my_facilities;
+						echo $data['listing'];
+						echo '<br>';
+					foreach($data['images'] as $image){
+						echo $image->image_name;
+						echo '<br>';
+					}
+					foreach($data['facilities'] as $facility){
+						echo $facility->facility;
+						echo '<br>';
+					}
+				}
+				else{
+					echo "Invalid Reference No";
+				}
+		}
+
+		public function syncListings(){
+			
+			$url 	= 	"http://xml.propspace.com/feed/xml.php?cl=1946&pid=8245&acc=8807";
+			$xml 	=	simplexml_load_file($url);
+
+			$listing_model  = new Listing();
+
+			$listing_model->syncDatabase($xml);
+			
+		}
 	}
+
+
 
 ?>

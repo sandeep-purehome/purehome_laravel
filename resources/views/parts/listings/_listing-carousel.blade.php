@@ -4,39 +4,42 @@
 		<div id="listing-carousel" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
-		    <li data-target="#listing-carousel" data-slide-to="0" class="active"></li>
-		    <li data-target="#listing-carousel" data-slide-to="1"></li>
-		    <li data-target="#listing-carousel" data-slide-to="2"></li>
-		    <li data-target="#listing-carousel" data-slide-to="3"></li>
-		    <li data-target="#listing-carousel" data-slide-to="4"></li>
-		    <li data-target="#listing-carousel" data-slide-to="5"></li>
-		    <li data-target="#listing-carousel" data-slide-to="6"></li>
-		    <li data-target="#listing-carousel" data-slide-to="7"></li>
+
+		  		@foreach ( $data['images'] as $index_key => $image )
+						@if ( $index_key==0 )
+							<li data-target="#listing-carousel" data-slide-to="{{ $index_key }}" class="active"></li>	
+
+						@else
+							<li data-target="#listing-carousel" data-slide-to="{{ $index_key }}"></li>	
+						@endif
+
+		  		@endforeach
+		
 		  </ol>
 
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
-		    <div class="item active">
-		      <img src="assets/images/listings/listing-1/listing-property-1.jpg" alt="Apartments in Abu Dhabi">
-		    </div>
-		    <div class="item">
-		      <img src="assets/images/listings/listing-1/listing-property-2.jpg" alt="...">
-		    </div>
-		   	<div class="item">
-		      <img src="assets/images/listings/listing-1/listing-property-3.jpg" alt="...">
-		    </div>
-		    <div class="item">
-		      <img src="assets/images/listings/listing-1/listing-property-4.jpg" alt="...">
-		    </div>
-		    <div class="item">
-		      <img src="assets/images/listings/listing-1/listing-property-5.jpg" alt="...">
-		    </div>
-		    <div class="item">
-		      <img src="assets/images/listings/listing-1/listing-property-6.jpg" alt="...">
-		    </div>
-		    <div class="item">
-		      <img src="assets/images/listings/listing-1/listing-property-7.jpg" alt="...">
-		    </div>
+
+			@foreach ($data['images'] as $index_key => $image)
+
+				@if ($index_key==0)
+					
+					<div class="item active">
+							<img class="img-responsive" src="{{ $image->image_name }}" style="width:100%;" alt="Apartments in Abu Dhabi">
+					</div>
+
+				@else
+
+					<div class="item">
+
+			      		<img class="img-responsive" src="{{ $image->image_name }}" style="width:100%;" alt="Apartments in Abu Dhabi">
+
+			    	</div>
+
+				@endif
+
+			@endforeach
+
 		  </div>
 		  <!-- Controls -->
 		  <a class="left carousel-control" href="#listing-carousel" role="button" data-slide="prev">

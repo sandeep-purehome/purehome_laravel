@@ -2,6 +2,7 @@
 	namespace App\Http\Controllers;
 
 	use App\Listing;
+	use DB;
 
 	class ListingsController extends Controller{
 
@@ -52,20 +53,28 @@
 		}
 
 		public function getListing($ref_no){
-  	 		$data['listing'] 	= Listing::find($ref_no);
+
+  	 		$data['listing'] 	= 	Listing::find($ref_no);
+
 				if(!empty($data['listing'])){
+
 					$data['images'] 	= Listing::find($ref_no)->my_images;
 					$data['facilities'] = Listing::find($ref_no)->my_facilities;
-						echo $data['listing'];
-						echo '<br>';
+					echo $data['listing'];
+					echo '<br>';
+
 					foreach($data['images'] as $image){
+
 						echo $image->image_name;
 						echo '<br>';
 					}
+
 					foreach($data['facilities'] as $facility){
+
 						echo $facility->facility;
 						echo '<br>';
 					}
+
 				}
 				else{
 					echo "Invalid Reference No";
@@ -74,13 +83,42 @@
 
 		public function syncListings(){
 			
-			$url 	= 	"http://xml.propspace.com/feed/xml.php?cl=1946&pid=8245&acc=8807";
-			$xml 	=	simplexml_load_file($url);
-
-			$listing_model  = new Listing();
+			$url 			= 	"http://xml.propspace.com/feed/xml.php?cl=1946&pid=8245&acc=8807";
+			$xml 			=	simplexml_load_file($url);
+			$listing_model  = 	new Listing();
 
 			$listing_model->syncDatabase($xml);
 			
+		}
+
+		public function getAllListings($ad_type){
+
+			//$listing 	=	DB::table('listings')->first();	
+			
+			$listings 	= 	Listing::where('ad_type', $ad_type)->paginate(9);
+
+			foreach ($listings as $listing){
+				$featured = array_first($listing->my_images);
+				$listing['featured'] 	= array_first($listing->my_images)[0]['image_name'];
+			}
+			
+			
+			//return view('pages.listings')->with('listings',$listings);
+			
+			
+
+			// foreach( $data['listings'] as $listing ){
+			// 	echo $listing->unit_reference_no;
+			// 	// $listing->images 	= 	Listing::find($listing->unit_reference_no)->my_images; 
+
+
+			// 	// $listing->facilities =	Listing::find($listing->unit_reference_no)->my_facilities;
+			// }
+			
+
+			return view('pages.listings')->with('listings', $listings)
+										->with('ad_type', $ad_type);
+
 		}
 	}
 

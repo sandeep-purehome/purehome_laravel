@@ -9,19 +9,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php"><img src="{{ URL::asset('assets/images/logo_purehome.png') }}" alt="Pure Home Real Estate Logo"></a>
+      <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ URL::asset('assets/images/logo_purehome.png') }}" alt="Pure Home Real Estate Logo"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-content-collapse">
       <ul class="nav navbar-nav">
-        <li class="{{ Request::is('/') ? "active" : "" }}"><a href="/purehome_laravel">Home <span class="sr-only">(current)</span></a></li>
+        <li class="{{ Request::is('/') ? "active" : "" }}"><a href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a></li>
         <!-- <li><a href="#">About</a></li> -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Company <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Services</a></li>
+            <li class="{{ Request::is('about') ? "active" : "" }}"><a href="{{ url('about') }}">About Us</a></li>
+            <li class="{{ Request::is('services') ? "active" : "" }}"><a href="{{ url('services') }}">Our Services</a></li>
             <!-- <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
@@ -32,10 +32,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Properties <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Properties for Sale</a></li>
-            <li><a href="#">Properties for Rent</a></li>
+            <li class="{{ Request::is('properties-for-sale') ? "active" : "" }}"><a href="{{ url('listing/show-listings/Sale') }}">Properties for Sale</a></li>
+            <li class="{{ Request::is('properties-for-rent') ? "active" : "" }}"><a href="{{ url('listing/show-listings/Rent') }}">Properties for Rent</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Submit Property</a></li>
+            <li class="{{ Request::is('list-property') ? "active" : "" }}"><a href="{{ url('list-property') }}">Submit Property</a></li>
             <!-- <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
@@ -43,10 +43,10 @@
             <li><a href="#">One more separated link</a></li> -->
           </ul>
         </li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Feedback</a></li>
-        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="contact">Contact</a></li>
-        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="calculator"><i class="fa fa-calculator fa-lg"></i> Calculator</a></li>
+        <li class="{{ Request::is('careers') ? "active" : "" }}"><a href="{{ url('careers') }}">Careers</a></li>
+        <li class="{{ Request::is('feedback') ? "active" : "" }}"><a href="{{ url('feedback') }}">Feedback</a></li>
+        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="{{ url('contact') }}">Contact</a></li>
+        <li class="{{ Request::is('calculator') ? "active" : "" }}"><a href="{{ url('calculator') }}"><i class="fa fa-calculator fa-lg"></i> Calculator</a></li>
       </ul>
 
       {{-- <form class="navbar-form navbar-left">

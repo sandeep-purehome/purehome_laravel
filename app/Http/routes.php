@@ -24,6 +24,8 @@ Route::get('/listing/details/{ref_no}', 'PagesController@getListing');
 
 Route::get('/listing/sync' , 'ListingsController@syncListings');
 
+Route::get('/listing/show-listings/{ad_type}' , 'ListingsController@getAllListings');
+
 Route::get('/', 'PagesController@getIndex');
 
 Route::get('about', 'PagesController@getAbout');

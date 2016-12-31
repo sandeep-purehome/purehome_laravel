@@ -6,7 +6,7 @@
 
 	class Listing extends Model{
 
-		public $primaryKey = 'unit_reference_no';
+		public $primaryKey 		= 'unit_reference_no';
 		public $incrementing 	= false;
 
 		public function syncDatabase($xml_listings){

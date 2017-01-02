@@ -2,7 +2,8 @@
 	namespace App\Http\Controllers;
 
 	use App\Listing;
-	use DB;
+	
+	use Illuminate\Http\Request;
 
 	class ListingsController extends Controller{
 
@@ -120,6 +121,8 @@
 										->with('ad_type', $ad_type);
 
 		}
+
+	
 	}
 
 

@@ -38,6 +38,8 @@ Route::get('test', function(){
 	return view('test')->with('listings',$listings);
 });
 
+Route::post('/contact/submit', 'ContactController@processForm');
+
 // Route::get('properties/{title?}', function ($title = null ) {
 // 	if ($title == null){
 // 		return view('hello');

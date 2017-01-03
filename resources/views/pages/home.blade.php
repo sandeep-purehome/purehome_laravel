@@ -112,4 +112,17 @@
 		</div>
 	</div>
 	<!-- Main Content Ends -->
-@stop
+@endsection
+
+@section('scripts')
+	<script>
+		var url = "{{url('listing/locations')}}";
+	</script>
+	<script>
+		// Locations for Type Ahead
+		$.get(url, function(data){
+			    $(".typeahead").typeahead({ source:data });
+			},'json');
+		// Locations for Type Ahead Ends
+	</script>
+@endsection

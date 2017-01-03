@@ -10,14 +10,22 @@
 		  </ol>
 
 		  <div class="carousel-jumbotron">
+
 		  	<h1 class="headings-main">Professional realtor works for you</h1>
-		  	<div class="input-group">
-	      <div class="input-group-addon btn-info"><i class="fa fa-location-arrow"></i></div>
-	      <input type="text" class="form-control input-lg" id="newletter-email" placeholder="Enter Location">
-	      <span class="input-group-btn">
-    		<button class="btn btn-warning btn-lg" type="button">SEARCH</button>
-  		</span>
-	    </div>
+
+		  	<form action="{{ url('/listing/search') }}" method="get">
+		  	 {!! Form::token(); !!}
+			  	<div class="input-group">
+					
+						<div class="input-group-addon btn-info"><i class="fa fa-location-arrow"></i></div>
+				      	<input type="text" data-provide="typeahead" class="form-control typeahead input-lg" name="search_term" spellcheck="false" autocomplete="off" id="search_term" placeholder="Enter Location, Community, Property Name">
+				      	<span class="input-group-btn">
+			    			<button class="btn btn-warning btn-lg" type="submit">SEARCH</button>
+			  			</span>
+					
+		    	</div>
+			</form>
+
 		  </div>
 
 		  <!-- Wrapper for slides -->

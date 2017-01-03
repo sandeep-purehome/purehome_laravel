@@ -3,6 +3,11 @@
 
 	use App\Listing;
 
+	use DB;
+
+	use Illuminate\Http\Request;
+	
+
 	class PagesController extends Controller{
 
 		public function getIndex(){
@@ -22,6 +27,10 @@
 
 		public function getCalculator(){
 			return view('pages.calculator');
+		}
+
+		public function getFeedback(){
+			return view('pages.feedback');
 		}
 
 		public function getServices(){
@@ -48,6 +57,18 @@
 			
 			return view('pages.listing-details')->with('data', $data);
 			
+		}
+
+		public function getSearchResults(Request $request){
+			$search_term 	= 	$request->search_term;
+			$listings 		=	Listing::where('community','like', $search_term)->orWhere('property_name','like',$search_term)->paginate(9);
+
+			foreach ($listings as $listing){
+				$featured = array_first($listing->my_images);
+				$listing['featured'] 	= array_first($listing->my_images)[0]['image_name'];
+			}
+
+			return view('pages.listings')->with('listings', $listings)->with('ad_type', $search_term);
 		}
 	}
 

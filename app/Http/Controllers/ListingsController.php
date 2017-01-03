@@ -2,6 +2,10 @@
 	namespace App\Http\Controllers;
 
 	use App\Listing;
+
+	use DB;
+
+	use Storage;
 	
 	use Illuminate\Http\Request;
 
@@ -89,37 +93,35 @@
 			$listing_model  = 	new Listing();
 
 			$listing_model->syncDatabase($xml);
+		}
+
+		public function generateLocations(){
+			$communities 	=	DB::table('listings')->distinct()->where('community','!=','')->pluck('community');
+			$propertyname 	=	DB::table('listings')->distinct()->where('property_name','!=','')->pluck('property_name');
 			
+			$locations = json_encode($communities + $propertyname);
+
+			//dd($locations);
+
+			Storage::disk('local')->put('locations.json', $locations);
+			//var_dump($locations);
+		}
+
+		public function getLocations(){
+			$locations = Storage::disk('local')->get('locations.json');
+			echo $locations;
 		}
 
 		public function getAllListings($ad_type){
 
-			//$listing 	=	DB::table('listings')->first();	
-			
 			$listings 	= 	Listing::where('ad_type', $ad_type)->paginate(9);
 
 			foreach ($listings as $listing){
-				$featured = array_first($listing->my_images);
 				$listing['featured'] 	= array_first($listing->my_images)[0]['image_name'];
 			}
 			
-			
-			//return view('pages.listings')->with('listings',$listings);
-			
-			
-
-			// foreach( $data['listings'] as $listing ){
-			// 	echo $listing->unit_reference_no;
-			// 	// $listing->images 	= 	Listing::find($listing->unit_reference_no)->my_images; 
-
-
-			// 	// $listing->facilities =	Listing::find($listing->unit_reference_no)->my_facilities;
-			// }
-			
-
 			return view('pages.listings')->with('listings', $listings)
 										->with('ad_type', $ad_type);
-
 		}
 
 	

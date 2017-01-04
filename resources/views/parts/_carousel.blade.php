@@ -13,18 +13,7 @@
 
 		  	<h1 class="headings-main">Professional realtor works for you</h1>
 
-		  	<form action="{{ url('/listing/search') }}" method="get">
-		  	 {!! Form::token(); !!}
-			  	<div class="input-group">
-					
-						<div class="input-group-addon btn-info"><i class="fa fa-location-arrow"></i></div>
-				      	<input type="text" data-provide="typeahead" class="form-control typeahead input-lg" name="search_term" spellcheck="false" autocomplete="off" id="search_term" placeholder="Enter Location, Community, Property Name">
-				      	<span class="input-group-btn">
-			    			<button class="btn btn-warning btn-lg" type="submit">SEARCH</button>
-			  			</span>
-					
-		    	</div>
-			</form>
+		  	@include ('parts._search-form')
 
 		  </div>
 

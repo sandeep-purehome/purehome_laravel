@@ -4,11 +4,23 @@
 	
 	<div class="container section">
 		<div class="row">
+			<div class="col-md-12">
+				@include ('parts._search-form')
+			</div>
+		</div>
+
+		<div class="row">
+
 		
 			<div class="col-md-12">
 
-				<h1 class="headings-main">{{ $listings->total() }} Properties for {{ $ad_type }} in Abu Dhabi</h1>
+				@if(isset($ad_type))
+					<h1 class="headings-main">{{ $listings->total() }} Properties for {{ $ad_type }} in Abu Dhabi</h1>
 
+				@elseif (isset($search_term))
+					<h1 class="headings-main">{{ $listings->total() }} Properties in {{$search_term}}</h1>
+				@endif
+				
 				<h2 class="text-center headings-sub">({{ $listings->firstItem() }} - {{ $listings->lastItem() }})</h2>
 
 			</div>
@@ -46,10 +58,24 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 ">
 				<div class="center-block text-center">
-					{{ $listings->appends(['search_term' => $ad_type])->links() }}	
+					@if (isset($ad_type))
+						{{ $listings->appends(['ad_type' => $ad_type])->links() }}	
+
+					@elseif (isset($search_term))
+						{{ $listings->appends(['search_term' => $search_term])->links() }} 
+					@endif
 				</div>
 			</div>
 		</div>
 	</div>
 
 @endsection
+
+@section('scripts')
+	<script>
+		var myvalue = $("#search_term").val();
+		console.log(myvalue);
+		console.log("Hello");
+	</script>
+@endsection
+

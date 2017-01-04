@@ -4,6 +4,7 @@
 	use App\Listing;
 
 	use DB;
+	use URL;
 
 	use Illuminate\Http\Request;
 	
@@ -59,16 +60,59 @@
 			
 		}
 
-		public function getSearchResults(Request $request){
-			$search_term 	= 	$request->search_term;
-			$listings 		=	Listing::where('community','like', $search_term)->orWhere('property_name','like',$search_term)->paginate(9);
+		public function getAllListings($ad_type){
+
+			$listings 	= 	Listing::where('ad_type', $ad_type)->paginate(9);
 
 			foreach ($listings as $listing){
-				$featured = array_first($listing->my_images);
 				$listing['featured'] 	= array_first($listing->my_images)[0]['image_name'];
 			}
+			
+			return view('pages.listings')->with('listings', $listings)
+										->with('ad_type', $ad_type);
+		}
 
-			return view('pages.listings')->with('listings', $listings)->with('ad_type', $search_term);
+		public function getSearchResults(Request $request){
+			echo URL::previous();
+			$search_term 		= 	$request->search_term;
+			$bedrooms 			=	$request->bedrooms;
+			$bathrooms 			=	$request->bathrooms;
+			$bedcond = '=';
+			$bathcond = '=';
+			if($bedrooms == null){
+				$bedrooms = 0;
+				$bedcond = '>=';
+			}
+			if($bathrooms == null){
+				$bathrooms = 0;
+				$bathcond = '>=';
+			}
+			
+			//echo $bedrooms;
+
+			
+			
+			$listings 			=	Listing::where([
+											['community','like', $search_term],
+											['bedrooms',$bedcond,$bedrooms],
+											['no_of_bathroom' , $bathcond, $bathrooms]
+											])
+										->orWhere([
+											['property_name','like',$search_term],
+											['bedrooms', $bedcond, $bedrooms],
+											['no_of_bathroom', $bathcond, $bathrooms]
+											])
+										->paginate(9);	
+			
+
+			foreach ($listings as $listing){
+
+				$featured 				= 	array_first($listing->my_images);
+				$listing['featured'] 	= 	array_first($listing->my_images)[0]['image_name'];
+
+			}
+
+			return view('pages.listings')->with('listings', $listings)->with('search_term', $search_term);
 		}
 	}
 

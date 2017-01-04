@@ -112,17 +112,7 @@
 			echo $locations;
 		}
 
-		public function getAllListings($ad_type){
-
-			$listings 	= 	Listing::where('ad_type', $ad_type)->paginate(9);
-
-			foreach ($listings as $listing){
-				$listing['featured'] 	= array_first($listing->my_images)[0]['image_name'];
-			}
-			
-			return view('pages.listings')->with('listings', $listings)
-										->with('ad_type', $ad_type);
-		}
+		
 
 	
 	}

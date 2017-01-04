@@ -24,13 +24,23 @@ Route::get('/listing/details/{ref_no}', 'PagesController@getListing');
 
 Route::get('/listing/sync' , 'ListingsController@syncListings');
 
-Route::get('/listing/show-listings/{ad_type}' , 'ListingsController@getAllListings');
+Route::get('/listing/generate','ListingsController@generateLocations');
+
+Route::get('listing/locations','ListingsController@getLocations');
+
+Route::get('/listing/show-listings/{ad_type}' , 'PagesController@getAllListings');
+
+Route::get('/listing/search' , 'PagesController@getSearchResults');
 
 Route::get('/', 'PagesController@getIndex');
 
 Route::get('about', 'PagesController@getAbout');
 
 Route::get('contact', 'PagesController@getContact');
+
+Route::get('feedback','PagesController@getFeedback');
+
+Route::get('calculator','PagesController@getCalculator');
 
 Route::get('test', function(){
 	$listings = ['Hydra','Al Reem', 'Al Raha'];

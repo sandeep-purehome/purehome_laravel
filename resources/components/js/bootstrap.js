@@ -11,5 +11,6 @@
 // @prepros-prepend "popover.js"
 // @prepros-prepend "scrollspy.js"
 // @prepros-prepend "tab.js"
+// @prepros-prepend "typeahead.js"
 // @prepros-prepend "custom.js"
 

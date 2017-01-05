@@ -49,7 +49,7 @@
 				</div>
 
 				<div class="row">
-					<span class="price"><span class="currency">AED</span> {{ $listing->price }}</span>
+					<span class="price"><span class="currency">AED</span> {{ number_format($listing->price) }}</span>
 				</div>
 
 				<div class="row section">

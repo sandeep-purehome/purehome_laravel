@@ -9,19 +9,24 @@
 			</div>
 		</div>
 
+		<br>
+		<br>
+		<hr>
+		<br>
+
 		<div class="row">
 
 		
 			<div class="col-md-12">
 
 				@if(isset($ad_type))
-					<h1 class="headings-main">{{ $listings->total() }} Properties for {{ $ad_type }} in Abu Dhabi</h1>
+					<h1 class="headings-main">{{ $listings->total() }} Properties for {{ $ad_type }} in Abu Dhabi ({{ $listings->firstItem() }} - {{ $listings->lastItem() }})</h1>
 
 				@elseif (isset($search_term))
-					<h1 class="headings-main">{{ $listings->total() }} Properties in {{$search_term}}</h1>
+					<h1 class="headings-main">{{ $listings->total() }} Properties in {{$search_term}} ({{ $listings->firstItem() }} - {{ $listings->lastItem() }})</h1>
 				@endif
 				
-				<h2 class="text-center headings-sub">({{ $listings->firstItem() }} - {{ $listings->lastItem() }})</h2>
+				
 
 			</div>
 
@@ -38,7 +43,11 @@
 								<h3 class="specs">{{ $listing->unit_builtup_area }} Sqft.</h3>
 							</div>
 							<div class="col-md-4 col-xs-4">
-								<h3 class="specs"><span class="fa fa-bed fa-lg"></span> &nbsp; {{ $listing->bedrooms }} Beds</h3>
+								@if($listing->bedrooms > 0)
+									<h3 class="specs"><span class="fa fa-bed fa-lg"></span> &nbsp; {{ $listing->bedrooms }} Beds</h3>
+								@else
+									<h3 class="specs"><span class="fa fa-bed fa-lg"></span> &nbsp; Studio</h3>
+								@endif	
 							</div>
 							<div class="col-md-4 col-xs-4">
 								<h3 class="specs"><span class="fa fa-bath fa-lg"></span> &nbsp; {{ $listing->no_of_bathroom }} Baths</h3>
@@ -62,7 +71,12 @@
 						{{ $listings->appends(['ad_type' => $ad_type])->links() }}	
 
 					@elseif (isset($search_term))
-						{{ $listings->appends(['search_term' => $search_term])->links() }} 
+						
+						{{ $listings->appends([
+							'bathrooms' 	=> $bathrooms,
+							'bedrooms' 			=> $bedrooms,
+							'search_term' 		=> $search_term
+							])->links() }}
 					@endif
 				</div>
 			</div>
@@ -77,5 +91,18 @@
 		console.log(myvalue);
 		console.log("Hello");
 	</script>
+
+
+	<script>
+		var url = "{{url('listing/locations')}}";
+	</script>
+	<script>
+		// Locations for Type Ahead
+		$.get(url, function(data){
+			    $(".typeahead").typeahead({ source:data });
+			},'json');
+		// Locations for Type Ahead Ends
+	</script>
+
 @endsection
 

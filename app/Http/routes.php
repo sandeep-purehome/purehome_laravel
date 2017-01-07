@@ -28,7 +28,9 @@ Route::get('/listing/generate','ListingsController@generateLocations');
 
 Route::get('listing/locations','ListingsController@getLocations');
 
-Route::get('/listing/show-listings/{ad_type}' , 'PagesController@getAllListings');
+// Route::get('/listing/show-listings/{ad_type}' , 'PagesController@getAllListings');
+
+Route::get('/listing/search/{ad_type}', 'PagesController@getSearchResults');
 
 Route::get('/listing/search' , 'PagesController@getSearchResults');
 

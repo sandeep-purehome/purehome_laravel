@@ -99,7 +99,8 @@
 			$communities 	=	DB::table('listings')->distinct()->where('community','!=','')->pluck('community');
 			$propertyname 	=	DB::table('listings')->distinct()->where('property_name','!=','')->pluck('property_name');
 			
-			$locations = json_encode($communities + $propertyname);
+
+			$locations = json_encode(array_merge($communities,$propertyname));
 
 			//dd($locations);
 

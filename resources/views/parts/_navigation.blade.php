@@ -32,8 +32,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Properties <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li class="{{ Request::is('properties-for-sale') ? "active" : "" }}"><a href="{{ url('listing/show-listings/Sale') }}">Properties for Sale</a></li>
-            <li class="{{ Request::is('properties-for-rent') ? "active" : "" }}"><a href="{{ url('listing/show-listings/Rent') }}">Properties for Rent</a></li>
+            <li class="{{ Request::is('properties-for-sale') ? "active" : "" }}"><a href="{{ url('listing/search/Sale') }}">Properties for Sale</a></li>
+            <li class="{{ Request::is('properties-for-rent') ? "active" : "" }}"><a href="{{ url('listing/search/Rent') }}">Properties for Rent</a></li>
             <li role="separator" class="divider"></li>
             <li class="{{ Request::is('list-property') ? "active" : "" }}"><a href="{{ url('list-property') }}">Submit Property</a></li>
             <!-- <li><a href="#">Something else here</a></li>

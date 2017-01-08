@@ -76,18 +76,18 @@
 				@if($ad_type == "Sale")
 					<select class="form-control" name="price_range" id="price_range">
 						<option value="" selected>Please Select</option>
-						<option value="0">Upto 500,000</option>
-						<option value="1">500,000 - 1,000,000</option>
-						<option value="2">1,000,000 - 2,000,000</option>
-						<option value="3">3,000,000 - 4,000,000</option>
-						<option value="4">3,000,000 - 4,000,000</option>
-						<option value="5">4,000,000 - 5,000,000</option>
-						<option value="6">5,000,000 - 6,000,000</option>
-						<option value="7">6,000,000 - 7,000,000</option>
-						<option value="8">7,000,000 - 8,000,000</option>
-						<option value="9">8,000,000 - 9,000,000</option>
-						<option value="10">9,000,000 - 10,000,000</option>
-						<option value="11"> Above 10,000,000</option>
+						<option value="0" <?php if ($price_range == "0"){ echo "selected"; } ?> >Upto 500,000</option>
+						<option value="1" <?php if ($price_range == "1"){ echo "selected"; } ?> >500,000 - 1,000,000</option>
+						<option value="2" <?php if ($price_range == "2"){ echo "selected"; } ?> >1,000,000 - 2,000,000</option>
+						<option value="3" <?php if ($price_range == "3"){ echo "selected"; } ?> >3,000,000 - 4,000,000</option>
+						<option value="4" <?php if ($price_range == "4"){ echo "selected"; } ?> >3,000,000 - 4,000,000</option>
+						<option value="5" <?php if ($price_range == "5"){ echo "selected"; } ?> >4,000,000 - 5,000,000</option>
+						<option value="6" <?php if ($price_range == "6"){ echo "selected"; } ?> >5,000,000 - 6,000,000</option>
+						<option value="7" <?php if ($price_range == "7"){ echo "selected"; } ?> >6,000,000 - 7,000,000</option>
+						<option value="8" <?php if ($price_range == "8"){ echo "selected"; } ?> >7,000,000 - 8,000,000</option>
+						<option value="9" <?php if ($price_range == "9"){ echo "selected"; } ?> >8,000,000 - 9,000,000</option>
+						<option value="10" <?php if ($price_range == "10"){ echo "selected"; } ?> >9,000,000 - 10,000,000</option>
+						<option value="11" <?php if ($price_range == "11"){ echo "selected"; } ?> > Above 10,000,000</option>
 					</select>	
 				@else
 					<select class="form-control" name="price_range" id="price_range">
@@ -126,7 +126,7 @@
 				</select>
 			</div>
 			<div id="reset_filter" class="text-right" style="padding-top: 15px; color: #333; cursor:pointer;">
-				<p>Reset Filter</p>
+				<p>[ Reset Filter ]</p>
 			</div>
 			
 		</div>

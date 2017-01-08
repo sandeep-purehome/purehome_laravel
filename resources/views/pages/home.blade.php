@@ -6,16 +6,18 @@
 	@include('parts._carousel')
 
 	<!-- Featured Locations -->
-	<div class="">
+	<div class=" container-fluid section">
 		<div class="row">
 			<div class="col-md-12 headings-main">
 				<h1>Featured Locations</h1>
 			</div>
 			<div class="col-md-3">
-				<div class="featured">
-					<img class="img-responsive" src="assets/images/featured-locations/yas-acres.jpg" alt="Yas Acres, Yas Island, Abu Dhabi">
-					<h2>YAS ACRES</h2>
-				</div>
+				<a href="{{ url('locations/yas-acres') }}">
+					<div class="featured">
+						<img class="img-responsive" src="assets/images/featured-locations/yas-acres.jpg" alt="Yas Acres, Yas Island, Abu Dhabi">
+						<h2>YAS ACRES</h2>
+					</div>
+				</a>
 			</div>
 			<div class="col-md-3">
 				<div class="featured">
@@ -45,11 +47,19 @@
 				<h1>Recent Properties</h1>
 			</div>
 
-			@foreach ($data['recent_listings'] as $listing)
+			@foreach($data['recent_listings']->chunk(3) as $row)
+				<div class="row">
+					@foreach($row as $listing)
+						@include('parts.listings._listing-card',['listing' => $listing])
+					@endforeach
+				</div>
+			@endforeach
+
+			{{-- @foreach ($data['recent_listings'] as $listing)
 
 				@include('parts.listings._listing-card',['listing' => $listing ])
 
-			@endforeach
+			@endforeach --}}
 			
 
 		</div>

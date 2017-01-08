@@ -53,10 +53,17 @@
 				
 
 			</div>
-
+			@foreach($listings->chunk(3) as $row)
+				<div class="row">
+					@foreach($row as $listing)
+						@include('parts.listings._listing-card',['listing' => $listing])
+					@endforeach
+				</div>
+			@endforeach
+{{-- 
 			@foreach ($listings as $listing)
 				@include('parts.listings._listing-card',['listing' => $listing])
-			@endforeach
+			@endforeach --}}
 
 		</div>
 	</div>

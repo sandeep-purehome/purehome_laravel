@@ -52,6 +52,18 @@ Route::get('test', function(){
 
 Route::post('/contact/submit', 'ContactController@processForm');
 
+
+// Featured Locations
+
+Route::get('/locations/{location}', 'FeaturedController@getIndex');
+Route::get('/locations/{location}/gallery', 'FeaturedController@getGallery');
+Route::get('/locations/{location}/video', 'FeaturedController@getVideo');
+Route::get('/locations/{location}/map', 'FeaturedController@getMap');
+Route::get('/locations/{location}/floor-plans', 'FeaturedController@getFloorplans');
+Route::get('/locations/{location}/brochure' , 'FeaturedController@getBrochure');
+Route::get('/locations/{location}/register','FeaturedController@getRegister');
+// Featured Locations Ends
+
 // Route::get('properties/{title?}', function ($title = null ) {
 // 	if ($title == null){
 // 		return view('hello');

@@ -76,8 +76,6 @@
 										->with('ad_type', $ad_type);
 		}
 
-		
-
 		public function getSearchResults(Request $request){
 
 			$search_term 	= $request->search_term;

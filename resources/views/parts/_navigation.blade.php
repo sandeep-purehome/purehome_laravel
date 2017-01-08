@@ -35,7 +35,7 @@
             <li class="{{ Request::is('properties-for-sale') ? "active" : "" }}"><a href="{{ url('listing/search/Sale') }}">Properties for Sale</a></li>
             <li class="{{ Request::is('properties-for-rent') ? "active" : "" }}"><a href="{{ url('listing/search/Rent') }}">Properties for Rent</a></li>
             <li role="separator" class="divider"></li>
-            <li class="{{ Request::is('list-property') ? "active" : "" }}"><a href="{{ url('list-property') }}">Submit Property</a></li>
+            {{-- <li class="{{ Request::is('list-property') ? "active" : "" }}"><a href="{{ url('list-property') }}">Submit Property</a></li> --}}
             <!-- <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
@@ -79,12 +79,13 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-offset-6 col-md-6 contact-info-bar ">
-			<p class="contact-item pull-right"><span class="fa fa-envelope" aria-hidden="true"></span>&nbsp; inquiry@purehome-re.ae</p>
-			<p class="contact-item pull-right"><span class="fa fa-phone fa-lg" aria-hidden="true"></span>&nbsp; 02 4466 775</p>
-			<p class="contact-item pull-right"><span class="fa fa-mobile fa-lg" aria-hidden="true"></span>&nbsp; 055 808 2380</p>
+			<p class="contact-item pull-right" style="background-color: #F0D22C; color: #fff; padding-left: 10px; padding-right: 10px; margin-left: 10px;"><span class="fa fa-envelope" style="color:#FFF;" aria-hidden="true"></span>&nbsp; inquiry@purehome-re.ae</p>
+			<p class="contact-item pull-right" style="background-color: #64D420; color: #fff; padding-left: 10px; padding-right: 10px; margin-left: 10px;"><span class="fa fa-phone fa-lg" style="color:#FFF;" aria-hidden="true"></span>&nbsp; 02 4466 775</p>
+			<p class="contact-item pull-right" style="background-color: #319AD1; color: #fff; padding-left: 10px; padding-right: 10px; margin-left: 10px;"><span class="fa fa-mobile fa-lg" style="color:#FFF;" aria-hidden="true"></span>&nbsp; 055 808 2380</p>
 		</div>
 	</div>
 </div>
 
 <!-- Contact Info Bar Ends -->
 
+<div style="border-bottom: 1px solid #eee;"></div>

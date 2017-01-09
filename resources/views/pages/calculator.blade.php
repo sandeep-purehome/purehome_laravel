@@ -1,113 +1,117 @@
 @extends('layouts.master')
 
 @section('content') 
+
 	<div class="container section">
 		<div class="row">
-              <div class="col-md-3">
-                     <div id="mortgage-calc">
-                          <form>
-                                <div class="form-group">
-                                     <label for="month">Select the start date:</label>
-                                      <select  class="form-control" id="month">
-                                            <option label="Jan" value="1" selected="selected">Jan</option>
-                                            <option label="Feb" value="2">Feb</option>
-                                            <option label="Mar" value="3">Mar</option>
-                                            <option label="Apr" value="4">Apr</option>
-                                            <option label="May" value="5">May</option>
-                                            <option label="Jun" value="6">Jun</option>
-                                            <option label="Jul" value="7">Jul</option>
-                                            <option label="Aug" value="8">Aug</option>
-                                            <option label="Sep" value="9">Sep</option>
-                                            <option label="Oct" value="10">Oct</option>
-                                            <option label="Nov" value="11">Nov</option>
-                                            <option label="Dec" value="12">Dec</option>
-                                      </select> 
-                                </div>
-                                
-                                <div class="form-group">
-                                      <select class="form-control" id="year">
-                                            <option label="1990" value="1990">1990</option>
-                                            <option label="1991" value="1991">1991</option>
-                                            <option label="1992" value="1992">1992</option>
-                                            <option label="1993" value="1993">1993</option>
-                                            <option label="1994" value="1994">1994</option>
-                                            <option label="1995" value="1995">1995</option>
-                                            <option label="1996" value="1996">1996</option>
-                                            <option label="1997" value="1997">1997</option>
-                                            <option label="1998" value="1998">1998</option>
-                                            <option label="1999" value="1999">1999</option>
-                                            <option label="2000" value="2000">2000</option>
-                                            <option label="2001" value="2001">2001</option>
-                                            <option label="2002" value="2002">2002</option>
-                                            <option label="2003" value="2003">2003</option>
-                                            <option label="2004" value="2004">2004</option>
-                                            <option label="2005" value="2005">2005</option>
-                                            <option label="2006" value="2006">2006</option>
-                                            <option label="2007" value="2007">2007</option>
-                                            <option label="2008" value="2008">2008</option>
-                                            <option label="2009" value="2009">2009</option>
-                                            <option label="2010" value="2010">2010</option>
-                                            <option label="2011" value="2011">2011</option>
-                                            <option label="2012" value="2012">2012</option>
-                                            <option label="2013" value="2013">2013</option>
-                                            <option label="2014" value="2014">2014</option>
-                                            <option label="2015" value="2015">2015</option>
-                                            <option label="2016" value="2016" selected>2016</option>
-                                            <option label="2017" value="2017">2017</option>
-                                            <option label="2018" value="2018">2018</option>
-                                            <option label="2019" value="2019">2019</option>
-                                            <option label="2020" value="2020">2020</option>
-                                            <option label="2021" value="2021">2021</option>
-                                            <option label="2022" value="2022">2022</option>
-                                      </select>   
-                                </div>
-                                
-                                
-                                <label>Enter the loan amount:</label>
-                                <div class="input-prepend">
-                                      <input class="span3" id="amount" type="text" placeholder="Loan Amount">
-                                </div>
-                                <br>
-                                <label>Enter the annual interest rate ( % ) :</label>
-                                <div class="input-append">
-                                      <input class="span3" id="interest" type="text" placeholder="Interest Rate">
-                                </div>
-                                <br>
-                                <label>Enter the term months of the loan :</label>
-                                <div class="input-append">
-                                      <input class="span3" id="term-months" type="text" placeholder="Term">
-                                      <span class="add-on">Months</span>
-                                </div>
-                          </form>
-                    </div>
-              </div>
-              <div class="col-md-9">
-                    <div class="row">
-                          <div class="col-md-6">
-                               <h3 style="font-weight:100; font-size: 26px;">Monthly Payment</h3>
-                                <div class="input-prepend">
-                                      <h1 class="primary_color" id="total" style="font-weight:100; font-size: 36px;"></h1>
-                                </div> 
+        <div class="col-md-12">
+          <h1 class="headings-main">Mortgage Calulator</h1>
+        </div>
+        <div class="col-md-3">
+               <div id="mortgage-calc">
+                    <form>
+                          <div class="form-group">
+                               <label for="month">Select the start date:</label>
+                                <select  class="form-control" id="month">
+                                      <option label="Jan" value="1" selected="selected">Jan</option>
+                                      <option label="Feb" value="2">Feb</option>
+                                      <option label="Mar" value="3">Mar</option>
+                                      <option label="Apr" value="4">Apr</option>
+                                      <option label="May" value="5">May</option>
+                                      <option label="Jun" value="6">Jun</option>
+                                      <option label="Jul" value="7">Jul</option>
+                                      <option label="Aug" value="8">Aug</option>
+                                      <option label="Sep" value="9">Sep</option>
+                                      <option label="Oct" value="10">Oct</option>
+                                      <option label="Nov" value="11">Nov</option>
+                                      <option label="Dec" value="12">Dec</option>
+                                </select> 
                           </div>
-                          <div class="col-md-6">
-                            <h3 style="font-weight:100; font-size: 26px;">Interest Paid</h3>
-                                <div class="input-prepend">
-                                     
-                                      <h1 class="" id="total_interest" style="font-weight:100; font-size: 36px; color:#EC9807;" ></h1>
-                                </div>
+                          
+                          <div class="form-group">
+                                <select class="form-control" id="year">
+                                      <option label="1990" value="1990">1990</option>
+                                      <option label="1991" value="1991">1991</option>
+                                      <option label="1992" value="1992">1992</option>
+                                      <option label="1993" value="1993">1993</option>
+                                      <option label="1994" value="1994">1994</option>
+                                      <option label="1995" value="1995">1995</option>
+                                      <option label="1996" value="1996">1996</option>
+                                      <option label="1997" value="1997">1997</option>
+                                      <option label="1998" value="1998">1998</option>
+                                      <option label="1999" value="1999">1999</option>
+                                      <option label="2000" value="2000">2000</option>
+                                      <option label="2001" value="2001">2001</option>
+                                      <option label="2002" value="2002">2002</option>
+                                      <option label="2003" value="2003">2003</option>
+                                      <option label="2004" value="2004">2004</option>
+                                      <option label="2005" value="2005">2005</option>
+                                      <option label="2006" value="2006">2006</option>
+                                      <option label="2007" value="2007">2007</option>
+                                      <option label="2008" value="2008">2008</option>
+                                      <option label="2009" value="2009">2009</option>
+                                      <option label="2010" value="2010">2010</option>
+                                      <option label="2011" value="2011">2011</option>
+                                      <option label="2012" value="2012">2012</option>
+                                      <option label="2013" value="2013">2013</option>
+                                      <option label="2014" value="2014">2014</option>
+                                      <option label="2015" value="2015">2015</option>
+                                      <option label="2016" value="2016" selected>2016</option>
+                                      <option label="2017" value="2017">2017</option>
+                                      <option label="2018" value="2018">2018</option>
+                                      <option label="2019" value="2019">2019</option>
+                                      <option label="2020" value="2020">2020</option>
+                                      <option label="2021" value="2021">2021</option>
+                                      <option label="2022" value="2022">2022</option>
+                                </select>   
                           </div>
-                    </div>
-
-                    <div style="height : 250px; overflow: auto; margin-top: 15px;">
-                         
-                                <div id="results">
-                                      <h3 id="amortization-header"></h3>
-                                      <table id="amortization" class="table table-striped"></table>
-                                </div>
-                        
-                    </div>
+                          
+                          
+                          <label>Enter the loan amount:</label>
+                          <div class="input-prepend">
+                                <input class="span3 form-control" id="amount" type="text" placeholder="Loan Amount">
+                          </div>
+                          <br>
+                          <label>Enter the annual interest rate ( % ) :</label>
+                          <div class="input-append">
+                                <input class="span3 form-control" id="interest" type="text" placeholder="Interest Rate">
+                          </div>
+                          <br>
+                          <label>Enter the term months of the loan :</label>
+                          <div class="input-append">
+                                <input class="span3 form-control" id="term-months" type="text" placeholder="Term">
+                               {{--  <span class="add-on">Months</span> --}}
+                          </div>
+                    </form>
               </div>
         </div>
+        <div class="col-md-9">
+            <div class="row">
+                  <div class="col-md-6">
+                       <h3 style="font-weight:100; font-size: 26px;">Monthly Payment</h3>
+                        <div class="input-prepend">
+                              <h1 class="primary_color" id="total" style="font-weight:100; font-size: 36px;"></h1>
+                        </div> 
+                  </div>
+                  <div class="col-md-6">
+                    <h3 style="font-weight:100; font-size: 26px;">Interest Paid</h3>
+                        <div class="input-prepend">
+                             
+                              <h1 class="" id="total_interest" style="font-weight:100; font-size: 36px; color:#EC9807;" ></h1>
+                        </div>
+                  </div>
+            </div>
+
+            <div style="height : 250px; overflow: auto; margin-top: 15px;">
+                 
+                        <div id="results">
+                              <h3 id="amortization-header"></h3>
+                              <table id="amortization" class="table table-striped"></table>
+                        </div>
+                
+            </div>
+        </div>
+    </div>
 	</div>
 
 @endsection

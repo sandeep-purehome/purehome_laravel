@@ -75,6 +75,10 @@
       		return $this->hasMany('App\Facility','unit_reference_no','unit_reference_no');
 
     	}
+
+    	protected $dateFormat = 'F'; 
+
+    	
 	}
 
 ?>

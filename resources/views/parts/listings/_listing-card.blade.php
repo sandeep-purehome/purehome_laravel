@@ -1,9 +1,23 @@
-<div class=" listings col-md-4">
-	<div class=" card-property">
-		<a href="{{ url('listing/details/'.$listing->unit_reference_no) }}">	
-			<img src="{{ $listing->featured }}" alt="">
-		</a>
-		<h2 class="title">{{ $listing->property_title }}</h2>
+<style>
+	.grow { transition: all .9s ease-in-out; }
+	.grow:hover { transform: scale(1.5); }
+
+</style>
+
+<div class=" listings col-md-4 ">
+	<div class=" card-property shadow" style="padding: 10px; ">
+		<?php 
+			$title_url 	= 	str_replace(' ' , '-' , $listing->property_title);
+			$title_url 	= 	preg_replace('/[^A-Za-z0-9\-]/', '', $title_url);
+			$title_url 	= 	urlencode($title_url);
+		?>
+		<div style="overflow: hidden;">
+			<a href="{{ url('listing/details/'.$listing->unit_reference_no.'/'.$title_url) }}">	
+				<img class="grow" src="{{ $listing->featured }}" alt="">
+			</a>
+		</div>
+		
+		<a href="{{ url('listing/details/'.$listing->unit_reference_no.'/'.$title_url) }}" style="text-decoration: none;"><h2 class="title">{{ $listing->property_title }}</h2></a>
 		<h2 class="price">AED {{ number_format($listing->price) }}</h2>
 		<div class="row">
 			<div class="col-md-4 col-xs-4">

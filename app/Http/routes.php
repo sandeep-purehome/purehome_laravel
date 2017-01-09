@@ -20,7 +20,7 @@ Route::get('db_test', function(){
 	var_dump($listing);
 });
 
-Route::get('/listing/details/{ref_no}', 'PagesController@getListing');
+Route::get('/listing/details/{ref_no}/{slug}', 'PagesController@getListing');
 
 Route::get('/listing/sync' , 'ListingsController@syncListings');
 
@@ -62,6 +62,7 @@ Route::get('/locations/{location}/map', 'FeaturedController@getMap');
 Route::get('/locations/{location}/floor-plans', 'FeaturedController@getFloorplans');
 Route::get('/locations/{location}/brochure' , 'FeaturedController@getBrochure');
 Route::get('/locations/{location}/register','FeaturedController@getRegister');
+Route::post('/locations/{location}/register/submit','ContactController@processYasAcresRegister');
 // Featured Locations Ends
 
 // Route::get('properties/{title?}', function ($title = null ) {

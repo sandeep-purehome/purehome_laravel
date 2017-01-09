@@ -6,6 +6,7 @@
 	use DB;
 	use URL;
 
+
 	use Illuminate\Support\Facades\Input;
 	use Illuminate\Http\Request;
 	
@@ -14,14 +15,14 @@
 
 		public function getIndex(){
 			
-			$data['recent_listings'] 	=	Listing::orderBy('last_updated','desc')->take(6)->get();
-			foreach ($data['recent_listings'] as $listing){
-				$listing['featured'] 	= array_first($listing->my_images)[0]['image_name'];
-			}
+			$data['recent_listings'] 		=		Listing::orderBy('last_updated','desc')->take(6)->get();
+			
+			$data['recent_listings'] 		=		PagesController::getFeaturedImage($data['recent_listings']);
 
 			return view('pages.home')->with("data", $data);
 		}
 
+	
 		public function getContact(){
 			return view('pages.contact');
 		}
@@ -47,21 +48,16 @@
 			$data['invalid'] 	=	false;
 			$data['listing'] 	= 	Listing::find($ref_no);
 
-			if(!empty($data['listing'])){
-			
-				$data['images'] 	= Listing::find($ref_no)->my_images;
-				$data['facilities'] = Listing::find($ref_no)->my_facilities;
-
+			$data['similar_listings']		=		Listing::where('property_name', 'like', $data['listing']->property_name)
+			                                             ->inRandomOrder()
+			                                             ->take(3)
+			                                             ->get();
+			$data['similar_listings'] 		= 		PagesController::getFeaturedImage($data['similar_listings']);
+			if (empty($data['listing'])){
+				$data['invalid'] 	=	true;
 			}
 
-			else{
-
-				$data['invalid'] = true;
-
-			}
-			
 			return view('pages.listing-details')->with('data', $data);
-			
 		}
 
 		public function getAllListings($ad_type){
@@ -124,6 +120,8 @@
 						['unit_builtup_area', '<' , $area_ranges['max']]
 					]);
 			}
+
+			$query = $query->orderBy('listing_date','desc');
 
 			$listings= $query->paginate(9);
 			
@@ -332,6 +330,16 @@
 			$range['max'] = $max;
 			return $range;
 		}
+
+		protected function getFeaturedImage($listings){
+
+			foreach ($listings as $listing){
+				$listing['featured'] 	= array_first($listing->my_images)[0]['image_name'];
+			}
+
+			return $listings;
+		}
+
 
 	}
 

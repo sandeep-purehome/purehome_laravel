@@ -47,7 +47,7 @@
 				</span>	
 			</a>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<h1 class="headings-medium"><i class="fa fa-newspaper-o fa-lg"></i> Newsletter</h1>
 			<p>Keep up with the latest company news and events. </p>
 			<p>Enter your e-mail and subscribe to our newsletter.</p>
@@ -59,23 +59,23 @@
 			</span>
 	    </div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-5">
 			<h1 class="headings-medium">Quick Links</h1>
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="quick-links">
-					<li>Apartments for Sale</li>
-					<li>Apartments for Rent</li>
-					<li>Villas for Sale</li>
-					<li>Villas for Rent</li>
+					<li><a href="{{ url('listing/search?property_type=Apartment&ad_type=Sale') }}">Apartments for Sale</a></li>
+					<li><a href="{{ url('listing/search?property_type=Apartment&ad_type=Rent') }}">Apartments for Rent</a></li>
+					<li><a href="{{ url('listing/search?property_type=Villa&ad_type=Sale') }}">Villas for Sale</a></li>
+					<li><a href="{{ url('listing/search?property_type=Villa&ad_type=Rent') }}">Villas for Rent</a></li>
 				</ul>	
 				</div>
 				<div class="col-md-6">
 					<ul class="quick-links">
-						<li>Townhouse for Sale</li>
-						<li>Townhouse for Rent</li>
-						<li>Studio for Sale</li>
-						<li>Studio for Rent</li>
+						<li><a href="{{ url('listing/search?property_type=Townhouse&ad_type=Sale') }}">Townhouse for Sale</a></li>
+						<li><a href="{{ url('listing/search?property_type=Townhouse&ad_type=Rent') }}">Townhouse for Rent</a></li>
+						<li><a href="{{ url('listing/search?bedrooms=0&ad_type=Sale') }}">Studio for Sale</a></li>
+						<li><a href="{{ url('listing/search?bedrooms=0&ad_type=Rent') }}">Studio for Rent</a></li>
 					</ul>
 				</div>
 			</div>

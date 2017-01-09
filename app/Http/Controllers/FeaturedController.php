@@ -8,6 +8,7 @@
 
 	use Illuminate\Support\Facades\Input;
 	use Illuminate\Http\Request;
+
 	
 
 	class FeaturedController extends Controller{

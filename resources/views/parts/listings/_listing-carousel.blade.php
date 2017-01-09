@@ -4,8 +4,9 @@
 		<div id="listing-carousel" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
+		 
 
-		  		@foreach ( $data['images'] as $index_key => $image )
+		  		@foreach ( $listing->my_images as $index_key => $image )
 						@if ( $index_key==0 )
 							<li data-target="#listing-carousel" data-slide-to="{{ $index_key }}" class="active"></li>	
 
@@ -20,7 +21,7 @@
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
 
-			@foreach ($data['images'] as $index_key => $image)
+			@foreach ($listing->my_images as $index_key => $image)
 
 				@if ($index_key==0)
 					

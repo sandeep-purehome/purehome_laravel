@@ -4,6 +4,30 @@
 @section('content')
 	<!-- Main Content -->
 	@include('parts._carousel')
+	
+	{{-- Apartment Types --}}
+	<div class="container section">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="headings-main">Property Types</h1>
+					</div>
+					<div class="col-md-4">
+						<img src="{{ URL::asset('assets/images/property_type/studio.jpg') }}" alt="">
+					</div>
+					<div class="col-md-4">
+						<img src="{{ URL::asset('assets/images/property_type/townhouse.jpg') }}" alt="">
+					</div>
+					<div class="col-md-4">
+						<img src="{{ URL::asset('assets/images/property_type/villa.jpg') }}" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{-- Apartment Types Ends --}}
+
 
 	<!-- Featured Locations -->
 	<div class=" container-fluid section">
